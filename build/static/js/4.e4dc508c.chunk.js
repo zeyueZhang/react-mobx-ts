@@ -1,0 +1,2 @@
+(window["webpackJsonpemoji-admin"]=window["webpackJsonpemoji-admin"]||[]).push([[4],{32:function(n,e,i){"use strict";i.r(e);var o=i(0),t=i.n(o);e.default=function(){return t.a.createElement("h2",null,"About")}}}]);
+//# sourceMappingURL=4.e4dc508c.chunk.js.map
