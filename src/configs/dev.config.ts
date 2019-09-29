@@ -2,7 +2,7 @@
  * 开发环境配置
  */
 
-import baseConf from './base.config'
+import { baseConfig }  from './base.config'
 import { defaultsDeep } from 'lodash'
 
 const devConf = {
@@ -12,6 +12,8 @@ const devConf = {
   },
 }
 
-defaultsDeep(devConf, baseConf)
+defaultsDeep(devConf, baseConfig)
 
-export default devConf
+export {
+  devConf
+}

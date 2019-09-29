@@ -2,7 +2,7 @@
  * 生产环境配置
  */
 
-import baseConf from './base.config'
+import { baseConfig } from './base.config'
 import { defaultsDeep } from 'lodash'
 
 const prodConf = {
@@ -11,6 +11,8 @@ const prodConf = {
   },
 }
 
-defaultsDeep(prodConf, baseConf)
+defaultsDeep(prodConf, baseConfig)
 
-export default prodConf
+export {
+  prodConf
+}

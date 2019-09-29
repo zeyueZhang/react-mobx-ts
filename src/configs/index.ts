@@ -1,13 +1,17 @@
 /**
  * 导出配置
  */
+import {devConf} from './dev.config';
+import {prodConf} from './prod.config';
 
-let config = ''
+let config: any
 const env = process.env.NODE_ENV
 if (env === 'development') {
-  config = require('./dev.config')
+  config = devConf
 } else {
-  config = require('./prod.config')
+  config = prodConf
 }
 
-export default config
+export {
+  config
+}

@@ -7,7 +7,7 @@ const statusCode = {
   success: 200
 }
 
-export default {
+export const baseConfig = {
   // api 配置
   api: {
     // 网络请求超时时间

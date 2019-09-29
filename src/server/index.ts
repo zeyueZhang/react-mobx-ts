@@ -1,18 +1,19 @@
 import axios from 'axios'
 import qs from 'query-string';
-import { func } from 'prop-types';
-import { reject } from 'q';
-
-const config = require('@/configs')
+import { config } from '@/configs';
 
 const Axios:any = axios.create({
-  baseURL: config.baseURL,
+  baseURL: process.env.REACT_APP_BASE_API,
   timeout: config.api.timeout,
   withCredentials: true,
   headers: {
+    // "X-Requested-With": "XMLHttpRequest",
     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-  }
+  },
+  // proxy: "http://127.0.0.1:8888"
 })
+
+// Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 Axios.interceptors.request.use( (config: any) => {
   if (config.method === "post") {
@@ -39,7 +40,7 @@ const request = function(method: string, url: string, params: any, config?: obje
   return new Promise((resolve, reject) => {
     Axios[method](url, params, Object.assign({}, config))
       .then((response: any) => {
-        resolve(response.date)
+        resolve(response.data)
       }, (err: any) => {
         if (err.Cancel) {
           console.log(err)
