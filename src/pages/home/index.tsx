@@ -6,12 +6,21 @@ import { inject, observer } from 'mobx-react';
 import { IHomeStore } from '@/models/IHomeStore';
 
 interface IHomeProps {
-  homeStore?: IHomeStore  //  这里比较关键 ？表示可或缺，如果没有就会报错。
+  homeStore?: IHomeStore
 }
 
 @inject('homeStore')
 @observer
 class Home extends Component<IHomeProps, object> {
+
+  componentDidMount() {
+    // const HomeStore = new HomeStore()
+    console.log(this.props.homeStore!.title)
+    setTimeout(() => {
+      this.props.homeStore!.setTitle('hhh')
+    }, 2000)
+  }
+
   public render() {
     const {title} = this.props.homeStore!
 

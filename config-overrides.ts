@@ -31,7 +31,8 @@ module.exports = override(
     ["@components"]: path.resolve(__dirname, "./src/components"),   
     ["@models"]: path.resolve(__dirname, "./src/models")
   }),
-  ...addBabelPlugins( // 支持装饰器
+  // 支持装饰器
+  ...addBabelPlugins(
     [
       '@babel/plugin-proposal-decorators',
       { legacy: true }
