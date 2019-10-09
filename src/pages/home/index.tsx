@@ -14,8 +14,6 @@ interface IHomeProps {
 class Home extends Component<IHomeProps, object> {
 
   componentDidMount() {
-    // const HomeStore = new HomeStore()
-    console.log(this.props.homeStore!.title)
     setTimeout(() => {
       this.props.homeStore!.setTitle('hhh')
     }, 2000)

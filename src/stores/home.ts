@@ -9,7 +9,7 @@ class HomeStore implements IHomeStore {
         return `hello ${this.title}`
     }
 
-    @action.bound
+    @action
     public setTitle(title: string): void{
         this.title = title
     }

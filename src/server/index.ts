@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'query-string';
-import { config } from '@/configs';
+import config from '@/configs';
 
 const Axios:any = axios.create({
   baseURL: process.env.REACT_APP_BASE_API,

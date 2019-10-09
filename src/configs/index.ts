@@ -12,6 +12,4 @@ if (env === 'development') {
   config = prodConf
 }
 
-export {
-  config
-}
+export default config
