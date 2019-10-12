@@ -4,19 +4,19 @@ import lessStyles from './index.module.less'
 import styles from './index.module.css';
 import { inject, observer } from 'mobx-react';
 import { IHomeStore } from '@/models/IHomeStore';
+import { IUserStore } from '@/models/IUserStore';
 
 interface IHomeProps {
-  homeStore?: IHomeStore
+  homeStore?: IHomeStore,
+  userStore?: IUserStore
 }
 
-@inject('homeStore')
+@inject('homeStore', 'userStore')
 @observer
 class Home extends Component<IHomeProps, object> {
 
   componentDidMount() {
-    setTimeout(() => {
-      this.props.homeStore!.setTitle('hhh')
-    }, 2000)
+    console.log(this.props.userStore!.getUserInfoFromSessionStorage().username, this.props.homeStore!)
   }
 
   public render() {
