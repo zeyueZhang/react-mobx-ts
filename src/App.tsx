@@ -11,7 +11,7 @@ import Login from './routes/Login'
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <ConfigProvider locale={zh_CN}>
         <Provider {...stores}>
             <Switch>

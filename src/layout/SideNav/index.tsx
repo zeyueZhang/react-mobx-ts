@@ -1,11 +1,12 @@
 import React from 'react'
 import CustomMenu from "./menu";
+import routesMap from '../../routes/routesMap';
 
 const menus = [
   {
     title: '首页',
     icon: 'home',
-    key: '/home'
+    key: routesMap.home
   },
   {
     title: '基本组件',
@@ -82,15 +83,12 @@ const menus = [
   {
     title: '用户',
     icon: 'user',
-    key: '/user',
-    subs:[
-      {key: '/user/list', title: '用户列表', icon: '',},
-    ]
+    key: routesMap.users
   },
   {
     title: '关于',
     icon: 'info-circle-o',
-    key: '/about'
+    key: routesMap.about
   }
 ]
 

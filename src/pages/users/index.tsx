@@ -214,7 +214,7 @@ class Users extends Component<any, State> {
               })(
                 <Input
                   placeholder="Username"
-                />,
+                />
               )}
             </Form.Item>
             <Form.Item>
@@ -224,7 +224,7 @@ class Users extends Component<any, State> {
                 <Input
                   type="number"
                   placeholder="Userage"
-                />,
+                />
               )}
             </Form.Item>
           </Form>
