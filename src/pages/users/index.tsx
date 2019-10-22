@@ -227,6 +227,15 @@ class Users extends Component<any, State> {
                 />
               )}
             </Form.Item>
+            <Form.Item>
+              {getFieldDecorator('password', {
+                rules: [{ required: true, message: 'Please input your password!' }],
+              })(
+                <Input
+                  placeholder="password"
+                />
+              )}
+            </Form.Item>
           </Form>
         </Modal>
       </div>

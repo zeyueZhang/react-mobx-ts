@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styles from './index.module.less';
-import { Form, Button, Icon, Input, Checkbox } from 'antd';
+import { Form, Button, Icon, Input, Checkbox, message } from 'antd';
 import { authenticateSuccess } from '../../utils/util'
 import { inject, observer } from 'mobx-react';
+import http from '@/server';
 
 @inject('userStore') @(Form.create() as any)
 @observer
@@ -12,15 +13,28 @@ class Login extends Component<any, any> {
     e.preventDefault();
     this.props.form.validateFields((err: {}, values: {username: string, password: string}) => {
       if (!err) {
-        authenticateSuccess(values.username + values.password)
-        this.props.userStore!.setUserInfoToSessionStorage(values)
-        
-        const pathname = this.props.location.state ? this.props.location.state.from.pathname : '/'
-        this.props.history.replace(pathname)
-        console.log('Received values of form: ', values);
+        this.login(values)
       }
     });
   };
+
+  login = (values: {username: string, password: string}) => {
+    http.post('/login', {
+      name: values.username,
+      password: values.password
+    }).then((res: any) => {
+      if(res.code === 200) {
+        authenticateSuccess(values.username + values.password)
+        this.props.userStore!.setUserInfoToSessionStorage(values)
+        const pathname = this.props.location.state ? this.props.location.state.from.pathname : '/'
+        this.props.history.replace(pathname)
+      }else {
+        message.error(res.info)
+      }
+    }).catch((err: any) => {
+      console.log(err)
+    })
+  }
 
   componentDidMount() {
     console.log(this.props.location.state)

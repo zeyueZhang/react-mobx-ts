@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, HashRouter } from 'react-router-dom'
 import { Provider } from 'mobx-react';
 import stores from './stores/index';
 import { ConfigProvider } from 'antd'
@@ -11,7 +11,7 @@ import Login from './routes/Login'
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter basename='/'>
+    <HashRouter basename='/'>
       <ConfigProvider locale={zh_CN}>
         <Provider {...stores}>
             <Switch>
@@ -20,7 +20,7 @@ const App: React.FC = () => {
             </Switch>
         </Provider>
       </ConfigProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
